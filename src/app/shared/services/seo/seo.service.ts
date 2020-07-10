@@ -5,8 +5,8 @@ import { Meta, Title } from '@angular/platform-browser';
 export class SeoService {
   readonly separator = ' | ';
   readonly title = 'SHANUR RAHMAN: Full Stack Developer';
-  readonly description = 'An Enthusiastic Full Stack Developer With a Passion for Learning. <br>A coder and a musician who want to learn more, grow and explore the world.';
-  readonly image = '/publicassets/images/sample-picture.jpg';
+  readonly description = 'An Enthusiastic Full Stack Developer With a Passion for Machine Learning. <br>A coder and a musician who want to learn more, grow and explore the world.';
+  readonly image = 'assets/images/profile-shanur.png';
   readonly metaDefault = [{ 'description': this.description }, { 'og:image': this.image }];
 
   constructor(private titleService: Title,

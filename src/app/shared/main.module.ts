@@ -12,7 +12,7 @@ import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { SkillsComponent } from '../skills/skills.component';
 
 import { AboutComponent as HomeAbout } from '../home/about/about.component';
-import { PortfolioComponent as HomePortfolio} from '../home/portfolio/portfolio.component';
+import { PortfolioComponent as HomePortfolio } from '../home/portfolio/portfolio.component';
 import { SkillsComponent as HomeSkills } from '../home/skills/skills.component';
 
 import { ChartModule } from 'primeng/chart';
@@ -33,12 +33,12 @@ import { PortfolioService } from '../shared/services/portfolio/portfolio.service
 const services = [PortfolioService];
 
 const homeRoute: Routes = [
-  	{ path: '', component: HomeComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'experiences', component: AboutExperienceComponent },
-    { path: 'contact-me', component: ContactUsComponent },
-    { path: 'portfolio', component: PortfolioComponent },
-    { path: 'skills', component: SkillsComponent },
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'experiences', component: AboutExperienceComponent },
+  { path: 'contact-me', component: ContactUsComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'skills', component: SkillsComponent },
 ];
 
 @NgModule({
@@ -46,11 +46,11 @@ const homeRoute: Routes = [
     ChartModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     CommonModule,
     ParticlesModule,
-  	RouterModule.forRoot(homeRoute)
+    RouterModule.forRoot(homeRoute)
   ],
   providers: [...services],
   exports: [RouterModule],
