@@ -154,15 +154,15 @@ MIT
 MIT
 MIT
 
+@angular/http@5.2.11
+MIT
+MIT
+
 @angular/router@5.2.11
 MIT
 MIT
 
 angular-particle@1.0.4
-MIT
-MIT
-
-@angular/http@5.2.11
 MIT
 MIT
 
