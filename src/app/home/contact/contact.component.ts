@@ -3,53 +3,63 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { fadeIn } from '../../animations/fade-in';
 import { scrollAnimation } from '../../animations/slide-from-left';
 import { fadeInFrom } from '../../animations/fade-in-from';
+import { PortfolioService } from '../../shared/services/portfolio/portfolio.service';
 
 @Component({
-	selector: 'home-contact-us',
-	animations: [fadeIn, scrollAnimation, fadeInFrom],
-	templateUrl: './contact.component.html',
-	styleUrls: ['./contact.component.scss']
+  selector: 'home-contact-us',
+  animations: [fadeIn, scrollAnimation, fadeInFrom],
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-	state = 'hide';
-	contactForm : FormGroup;
-	contact     : IContactInput;
+  state = 'hide';
+  contactForm: FormGroup;
+  contact: IContactInput;
 
-	constructor(public el: ElementRef, 
-		private formBuilder: FormBuilder) { 
-		this.contact = <IContactInput>{}; 
-	}
+  constructor(public el: ElementRef,
+    private commonService: PortfolioService,
+    private formBuilder: FormBuilder) {
+    this.contact = <IContactInput>{};
+  }
 
-	ngOnInit() {
-		this.contactForm = this.formBuilder.group({
-			'email'   : [null, Validators.compose([Validators.required, Validators.email])],
-	    	'subject' : [null, Validators.compose([Validators.required])],
-	    	'name'    : [null, Validators.compose([Validators.required])],
-	    	'message' : [null, Validators.compose([Validators.required])]
-	    });
-	}
+  ngOnInit() {
+    this.contactForm = this.formBuilder.group({
+      'email': [null, Validators.compose([Validators.required, Validators.email])],
+      'subject': [null, Validators.compose([Validators.required])],
+      'name': [null, Validators.compose([Validators.required])],
+      'message': [null, Validators.compose([Validators.required])]
+    });
+  }
 
-	@HostListener('window:scroll', ['$event']) checkScroll() {
+  @HostListener('window:scroll', ['$event']) checkScroll() {
 
-		const div = document.getElementById('section-contact').offsetTop;
-		const componentPosition = this.el.nativeElement.offsetTop
-		const scrollPosition = window.pageYOffset;
+    const div = document.getElementById('section-contact').offsetTop;
+    const componentPosition = this.el.nativeElement.offsetTop
+    const scrollPosition = window.pageYOffset;
 
-		if (scrollPosition >= div - 500) {
-			this.state = 'show';
-		} else {
-			this.state = 'hide';
-		}
+    if (scrollPosition >= div - 500) {
+      this.state = 'show';
+    } else {
+      this.state = 'hide';
+    }
 
-	}
+  }
+
+  onSubmit() {
+    this.commonService.postToSheets(this.contactForm.value).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    })
+  }
 
 }
 
 
-interface IContactInput{
-	name            : string;
-	email           : string;
-	password        : string;
-	confirmPassword : string;
-	address         : string;
+export interface IContactInput {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  address: string;
 }

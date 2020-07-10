@@ -10,6 +10,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ChartModule } from 'primeng/chart';
 import { MainModule } from './shared/main.module';
 import { SeoService } from './shared/services/seo/seo.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { SeoService } from './shared/services/seo/seo.service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     BrowserAnimationsModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     CommonModule,
     MainModule,

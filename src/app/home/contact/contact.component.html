@@ -36,7 +36,11 @@
         <br />
       </div>
 
-      <form [formGroup]="contactForm">
+      <form
+        [formGroup]="contactForm"
+        name="submit-to-google-sheet"
+        (submit)="onSubmit()"
+      >
         <fieldset>
           <div class="form-group">
             <div class="col-md-12">

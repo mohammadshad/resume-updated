@@ -29,6 +29,7 @@ import { RestaurantModalComponent } from '../portfolio/modal/restaurant-modal/re
 import { WeatzeneModalComponent } from '../portfolio/modal/weatzene-modal/weatzene-modal.component';
 
 import { PortfolioService } from '../shared/services/portfolio/portfolio.service';
+import { HttpModule } from '@angular/http';
 
 const services = [PortfolioService];
 
