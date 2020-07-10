@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { PortfolioDB } from '../../fake-db/portfolio-items';
 import { delay } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { IContactInput } from '../../../home/contact/contact.component';
 
 @Injectable()
@@ -30,6 +30,10 @@ export class PortfolioService {
 
     fd.append("subject", formData.subject);
     fd.append("message", formData.message);
-    return this.http.post("https://script.google.com/macros/s/AKfycbx9E8FZdXzHq92iOcRxm3u6DTaxTqEam4rkoQc2byZYbzdMjbc/exec", fd);
+
+    const headers = new Headers({
+      'Content-Type': 'application/json;',
+    })
+    return this.http.post("https://script.google.com/macros/s/AKfycbx9E8FZdXzHq92iOcRxm3u6DTaxTqEam4rkoQc2byZYbzdMjbc/exec", fd, { headers });
   }
 }
