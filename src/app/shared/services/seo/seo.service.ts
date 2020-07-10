@@ -6,7 +6,7 @@ export class SeoService {
   readonly separator = ' | ';
   readonly title = 'SHANUR RAHMAN: Full Stack Developer';
   readonly description = 'An Enthusiastic Full Stack Developer With a Passion for Learning. <br>A coder and a musician who want to learn more, grow and explore the world.';
-  readonly image = '/public../../assets/images/sample-picture.jpg';
+  readonly image = '/publicassets/images/sample-picture.jpg';
   readonly metaDefault = [{ 'description': this.description }, { 'og:image': this.image }];
 
   constructor(private titleService: Title,
