@@ -34,6 +34,6 @@ export class PortfolioService {
     const headers = new Headers({
       'Content-Type': 'application/json;',
     })
-    return this.http.post("https://script.google.com/macros/s/AKfycbx9E8FZdXzHq92iOcRxm3u6DTaxTqEam4rkoQc2byZYbzdMjbc/exec", fd, { headers });
+    return this.http.post("https://script.google.com/macros/s/AKfycbx9E8FZdXzHq92iOcRxm3u6DTaxTqEam4rkoQc2byZYbzdMjbc/exec", fd);
   }
 }
