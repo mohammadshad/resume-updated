@@ -1,16 +1,16 @@
-import {Injectable} from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
+import { Injectable } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable()
 export class SeoService {
   readonly separator = ' | ';
-  readonly title = 'SHANUR RAHMAN: Web Developer';
-  readonly description = 'An Enthusiastic Web Developer With a Passion for Learning. <br>A coder and a musician who want to learn more, grow and explore the world.';
-  readonly image = '/public/assets/images/sample-picture.jpg';
-  readonly metaDefault = [{'description': this.description}, {'og:image': this.image}];
+  readonly title = 'SHANUR RAHMAN: Full Stack Developer';
+  readonly description = 'An Enthusiastic Full Stack Developer With a Passion for Learning. <br>A coder and a musician who want to learn more, grow and explore the world.';
+  readonly image = '/public../../assets/images/sample-picture.jpg';
+  readonly metaDefault = [{ 'description': this.description }, { 'og:image': this.image }];
 
   constructor(private titleService: Title,
-              private meta: Meta) {
+    private meta: Meta) {
 
   }
 
@@ -44,7 +44,7 @@ export class SeoService {
       result = this.smartConcat(result, title);
     }
     if (addSuffix) {
-      result = this.smartConcat(result, 'SHANUR RAHMAN: Web Developer');
+      result = this.smartConcat(result, 'SHANUR RAHMAN: Full Stack Developer');
     }
     this.titleService.setTitle(result);
     this.upsertMeta('og:title', result);
@@ -68,9 +68,9 @@ export class SeoService {
     if (name && value) {
       const tag = SeoService.getTag(name);
       if (this.meta.getTag(tag) != null) {
-        this.meta.updateTag({property: name, content: value});
+        this.meta.updateTag({ property: name, content: value });
       } else {
-        this.meta.addTag({property: name, content: value});
+        this.meta.addTag({ property: name, content: value });
       }
     }
   }
@@ -92,7 +92,7 @@ export class SeoService {
   private resetMeta(name: string) {
     const tag = SeoService.getTag(name);
     if (this.metaDefault[name]) {
-      this.meta.updateTag({property: name, content: this.metaDefault[name]});
+      this.meta.updateTag({ property: name, content: this.metaDefault[name] });
     } else {
       this.meta.removeTag(tag);
     }
