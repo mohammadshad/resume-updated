@@ -4,7 +4,7 @@ import {Meta, Title} from '@angular/platform-browser';
 @Injectable()
 export class SeoService {
   readonly separator = ' | ';
-  readonly title = 'Sherwin Dapito: Web Developer';
+  readonly title = 'SHANUR RAHMAN: Web Developer';
   readonly description = 'An Enthusiastic Web Developer With a Passion for Learning. <br>A coder and a musician who want to learn more, grow and explore the world.';
   readonly image = '/public/assets/images/sample-picture.jpg';
   readonly metaDefault = [{'description': this.description}, {'og:image': this.image}];
@@ -44,7 +44,7 @@ export class SeoService {
       result = this.smartConcat(result, title);
     }
     if (addSuffix) {
-      result = this.smartConcat(result, 'Sherwin Dapito: Web Developer');
+      result = this.smartConcat(result, 'SHANUR RAHMAN: Web Developer');
     }
     this.titleService.setTitle(result);
     this.upsertMeta('og:title', result);
